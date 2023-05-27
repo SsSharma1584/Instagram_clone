@@ -19,9 +19,9 @@ class FeedScreen extends StatelessWidget {
         actions: [Row(
           children: [
             IconButton(onPressed: (){
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => NotificationsScreen(),));
-            }, icon: Icon(Icons.favorite_border)),
-            IconButton(onPressed: (){}, icon: Icon(Icons.messenger_outline)),
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => const NotificationsScreen(),));
+            }, icon: const Icon(Icons.favorite_border)),
+            IconButton(onPressed: (){}, icon: const Icon(Icons.messenger_outline)),
           ],
         )],
       ),
@@ -37,7 +37,7 @@ class FeedScreen extends StatelessWidget {
           return ListView.builder(
                 itemCount: snapshot.data!.docs.length,
                   itemBuilder: (context, index) => Container(
-                    margin: EdgeInsets.symmetric(
+                    margin: const EdgeInsets.symmetric(
                       horizontal: Checkbox.width > webScreenSize ? Checkbox.width * 0.3 :0,
                       vertical: Checkbox.width > webScreenSize ? 15 :0,
                     ),

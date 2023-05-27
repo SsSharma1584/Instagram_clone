@@ -125,11 +125,11 @@ class _PostCardState extends State<PostCard> {
                         ),
                       ),
                       AnimatedOpacity(
-                        duration: Duration(milliseconds: 200),
+                        duration: const Duration(milliseconds: 200),
                         opacity: isLikeAnimating ? 1 : 0,
                         child: LikeAnimation(
                           isAnimating: isLikeAnimating,
-                          duration: Duration(milliseconds: 400),
+                          duration: const Duration(milliseconds: 400),
                           onEnd: () {
                             setState(() {
                               isLikeAnimating = false;
@@ -137,7 +137,7 @@ class _PostCardState extends State<PostCard> {
                           },
 
 
-                              child: Icon(
+                              child: const Icon(
                                 Icons.favorite,
                                 color: Colors.white,
                                 size: 100,
@@ -223,7 +223,7 @@ class _PostCardState extends State<PostCard> {
                           child: Container(
                             padding: const EdgeInsets.symmetric(vertical: 4),
                             child:  Text('View all $commentLen comments',
-                                style: TextStyle(fontSize: 16, color: secondaryColor)),
+                                style: const TextStyle(fontSize: 16, color: secondaryColor)),
                           ),
                         ),
                         Container(

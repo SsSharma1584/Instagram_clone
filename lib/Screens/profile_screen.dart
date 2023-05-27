@@ -2,13 +2,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:instagram/Screens/login_screen.dart';
-import 'package:instagram/Screens/notifications_screen.dart';
 import 'package:instagram/firebase/auth_methods.dart';
 import 'package:instagram/firebase/firestore_methods.dart';
 import 'package:instagram/utils/Utils.dart';
 import 'package:instagram/utils/colors.dart';
-import 'package:instagram/widgets/drawer.dart';
-
 import '../widgets/follow_button.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -63,14 +60,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
       showSnackBar(context, e.toString());
     }
     
-    if (mounted)
+    if (mounted) {
       setState(() {isLoading = false;});
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return isLoading
-        ? Center(
+        ? const Center(
             child: CircularProgressIndicator(),
           )
         : Scaffold(
@@ -79,10 +77,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
               title: Text(userData['username']),
               actions: [Row(
                 children: [
-                  IconButton(onPressed: () {}, icon: Icon(Icons.add_box_outlined)),
+                  IconButton(onPressed: () {}, icon: const Icon(Icons.add_box_outlined)),
                   IconButton(onPressed: () {
 
-                  }, icon: Icon(Icons.menu)),
+                  }, icon: const Icon(Icons.menu)),
                 ],
               )],
             ),
@@ -131,7 +129,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                                   context,
                                                   MaterialPageRoute(
                                                     builder: (context) =>
-                                                        LoginScreen(),
+                                                        const LoginScreen(),
                                                   ));
                                             })
                                         : isFollowing
@@ -178,22 +176,22 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                       Container(
                         alignment: Alignment.centerLeft,
-                        padding: EdgeInsets.only(
+                        padding: const EdgeInsets.only(
                           top: 15,
                         ),
                         child: Text(userData['username'],
-                            style: TextStyle(fontWeight: FontWeight.bold)),
+                            style: const TextStyle(fontWeight: FontWeight.bold)),
                       ),
                       Container(
                           alignment: Alignment.centerLeft,
-                          padding: EdgeInsets.only(
+                          padding: const EdgeInsets.only(
                             top: 1,
                           ),
                           child: Text(userData['bio'])),
                     ],
                   ),
                 ),
-                Divider(),
+                const Divider(),
                 FutureBuilder(
                   future: FirebaseFirestore.instance
                       .collection('posts')
@@ -201,14 +199,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       .get(),
                   builder: (context, snapshot) {
                     if (snapshot.connectionState == ConnectionState.waiting) {
-                      return Center(
+                      return const Center(
                         child: CircularProgressIndicator(),
                       );
                     }
                     return GridView.builder(
                       shrinkWrap: true,
                       itemCount: (snapshot.data! as dynamic).docs.length,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 3,
                           crossAxisSpacing: 5,
                           mainAxisSpacing: 1.5,
@@ -217,11 +215,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         DocumentSnapshot snap =
                             (snapshot.data! as dynamic).docs[index];
 
-                        return Container(
-                          child: Image(
-                            image: NetworkImage(snap['postUrl']),
-                            fit: BoxFit.cover,
-                          ),
+                        return Image(
+                          image: NetworkImage(snap['postUrl']),
+                          fit: BoxFit.cover,
                         );
                       },
                     );
@@ -239,13 +235,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
       children: [
         Text(
           num.toString(),
-          style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+          style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
         ),
         Container(
-          margin: EdgeInsets.only(top: 4),
+          margin: const EdgeInsets.only(top: 4),
           child: Text(
             label,
-            style: TextStyle(
+            style: const TextStyle(
                 fontSize: 15, fontWeight: FontWeight.w400, color: Colors.grey),
           ),
         ),

@@ -5,7 +5,7 @@ import 'package:instagram/firebase/auth_methods.dart';
 import 'package:instagram/responsive/mobile_screen_layout.dart';
 import 'package:instagram/responsive/responsive_layout.dart';
 import 'package:instagram/utils/colors.dart';
-import 'package:instagram/widgets/Round Button.dart';
+import 'package:instagram/widgets/round_button.dart';
 import 'package:instagram/widgets/text_field_input.dart';
 import 'package:image_picker/image_picker.dart';
 import '../utils/Utils.dart';

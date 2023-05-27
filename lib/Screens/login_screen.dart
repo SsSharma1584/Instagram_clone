@@ -4,11 +4,10 @@ import 'package:instagram/Screens/signup_screen.dart';
 import 'package:instagram/firebase/auth_methods.dart';
 import 'package:instagram/utils/Utils.dart';
 import 'package:instagram/utils/colors.dart';
-import 'package:instagram/widgets/Round%20Button.dart';
 import 'package:instagram/widgets/text_field_input.dart';
 import '../responsive/mobile_screen_layout.dart';
 import '../responsive/responsive_layout.dart';
-
+import 'package:instagram/widgets/round_button.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);

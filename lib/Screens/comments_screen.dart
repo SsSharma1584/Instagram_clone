@@ -31,7 +31,7 @@ class _CommentsScreenState extends State<CommentsScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: mobileBackgroundColor,
-        title: Text('Comments'),
+        title: const Text('Comments'),
       ),
       body: StreamBuilder(
         stream: FirebaseFirestore.instance
@@ -70,10 +70,10 @@ class _CommentsScreenState extends State<CommentsScreen> {
                 ),
                 Expanded(
                   child: Padding(
-                    padding: EdgeInsets.only(left: 16, right: 8),
+                    padding: const EdgeInsets.only(left: 16, right: 8),
                     child: TextField(
                       controller: _commentController,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                           hintText: 'Add a comment...',
                           border: InputBorder.none),
                     ),
@@ -92,8 +92,8 @@ class _CommentsScreenState extends State<CommentsScreen> {
                     });
                   },
                   child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-                    child: Text('Post',
+                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+                    child: const Text('Post',
                         style: TextStyle(
                           color: blueColor,
                         )),

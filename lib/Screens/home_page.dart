@@ -17,40 +17,38 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Container(
-          child: Stack(
-            children: [
-              //We need swiper for every content
-              Swiper(
-                itemBuilder: (BuildContext context, int index) {
-                  return ReelScreen(
-                    snap: videos[index],
-                  );
-                },
-                itemCount: videos.length,
-                scrollDirection: Axis.vertical,
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10),
-                      child: Text(
-                        'Reels',
-                        style: TextStyle(
-                          fontSize: 22,
-                          fontWeight: FontWeight.w600,
-                        ),
+        child: Stack(
+          children: [
+            //We need swiper for every content
+            Swiper(
+              itemBuilder: (BuildContext context, int index) {
+                return ReelScreen(
+                  snap: videos[index],
+                );
+              },
+              itemCount: videos.length,
+              scrollDirection: Axis.vertical,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: const [
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 10),
+                    child: Text(
+                      'Reels',
+                      style: TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
-                    Icon(Icons.camera_alt),
-                  ],
-                ),
+                  ),
+                  Icon(Icons.camera_alt),
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

@@ -64,7 +64,7 @@ class _ReelScreenState extends State<ReelScreen> {
         )
             : Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+          children: const [
             CircularProgressIndicator(),
             SizedBox(height: 10),
             Text('Loading...')
@@ -74,7 +74,7 @@ class _ReelScreenState extends State<ReelScreen> {
           Center(
             child: LikeIcon(),
           ),
-        OptionsScreen()
+        const OptionsScreen()
       ],
     );
   }

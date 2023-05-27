@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class LikeIcon extends StatelessWidget {
   Future<int> tempFuture() async {
-    return Future.delayed(Duration(seconds: 1));
+    return Future.delayed(const Duration(seconds: 1));
   }
 
   @override
@@ -12,8 +12,8 @@ class LikeIcon extends StatelessWidget {
         future: tempFuture(),
         builder: (context, snapshot) =>
         snapshot.connectionState != ConnectionState.done
-            ? Icon(Icons.favorite, size: 110)
-            : SizedBox(),
+            ? const Icon(Icons.favorite, size: 110)
+            : const SizedBox(),
       ),
     );
   }

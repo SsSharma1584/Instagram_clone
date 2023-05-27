@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:instagram/Screens/message_screen.dart';
 import 'package:instagram/Screens/notifications_screen.dart';
 import 'package:instagram/utils/colors.dart';
 import 'package:instagram/utils/global_variables.dart';
@@ -21,7 +22,9 @@ class FeedScreen extends StatelessWidget {
             IconButton(onPressed: (){
               Navigator.of(context).push(MaterialPageRoute(builder: (context) => const NotificationsScreen(),));
             }, icon: const Icon(Icons.favorite_border)),
-            IconButton(onPressed: (){}, icon: const Icon(Icons.messenger_outline)),
+            IconButton(onPressed: (){
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => MessageScreen(),));
+            }, icon: const Icon(Icons.messenger_outline)),
           ],
         )],
       ),
